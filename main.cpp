@@ -49,3 +49,18 @@ public:
         }
     }
 };
+
+// 70
+class Solution {
+public:
+    map <int, int> curry = {
+        {1, 1}, {2, 2}
+    };
+    int climbStairs(int n) {
+        int num = curry[n];
+        if (num) return num;
+        num = climbStairs(n - 2) + climbStairs(n - 1);
+        curry[n] = num;
+        return num;
+    }
+};
