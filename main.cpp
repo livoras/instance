@@ -64,3 +64,22 @@ public:
         return num;
     }
 };
+
+// 102
+vector<vector<int>> levelOrder(TreeNode* root) {
+    vector<vector<int>> ret;
+    queue<TreeNode*> arr;
+    arr.push(root);
+    while (!arr.empty()) {
+        vector<int> intes;
+        queue<TreeNode*> next;
+        while(!arr.empty()) {
+            intes.push_back(arr.front() -> val);
+            next.push(arr.front());
+            arr.pop();
+        }
+        ret.push_back(intes);
+        arr = next;
+    }
+    return ret;
+}
